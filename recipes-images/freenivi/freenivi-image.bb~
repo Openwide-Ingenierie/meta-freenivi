@@ -1,4 +1,4 @@
-DESCRIPTION = "Image with Freenivi."
+DESCRIPTION = "Image with Calaos."
 
 IMAGE_FEATURES += "splash package-management x11-base ssh-server-dropbear"
 
@@ -16,5 +16,4 @@ IMAGE_INSTALL += "openssl ca-certificates"
 
 IMAGE_INSTALL += "edje-utils elementary-tests"
 IMAGE_INSTALL += "cinematicexperience"
-IMAGE_INSTALL += "qtwebkit-examples"
-
+IMAGE_INSTALL += "qtwebkit-demos"
