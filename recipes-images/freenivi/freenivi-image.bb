@@ -29,7 +29,7 @@ IMAGE_INSTALL_append_x86 = " mesa-driver-i915 "
 IMAGE_INSTALL_append_x86-64 = " mesa-driver-i915 "
 
 #QT Wayland
-IMAGE_INSTALL += "qtwayland qtwayland-plugins "
+#IMAGE_INSTALL += "qtwayland qtwayland-plugins "
 
 #Fonts
 IMAGE_INSTALL += "ttf-bitstream-vera qtbase-fonts-ttf-dejavu"
