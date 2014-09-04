@@ -14,7 +14,7 @@ IMAGE_INSTALL += "openssl ca-certificates"
 
 #IMAGE_INSTALL += "edje-utils elementary-tests"
 IMAGE_INSTALL += "cinematicexperience"
-#IMAGE_INSTALL += "qtwebkit-examples"
+#IMAGE_INSTALL += "qtwebkit qtwebkit-examples"
 
 #IMAGE_INSTALL += "bluez5 bluez5-obex"
 IMAGE_INSTALL += "ofono"
@@ -29,7 +29,7 @@ IMAGE_INSTALL_append_x86 = " mesa-driver-i915 "
 IMAGE_INSTALL_append_x86-64 = " mesa-driver-i915 "
 
 #QT Wayland
-#IMAGE_INSTALL += "qtwayland qtwayland-plugins "
+IMAGE_INSTALL += "qtwayland qtwayland-plugins "
 
 #Fonts
 IMAGE_INSTALL += "ttf-bitstream-vera qtbase-fonts-ttf-dejavu"

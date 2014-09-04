@@ -1,0 +1,11 @@
+DISTRO_NAME = "Freenivi"
+DISTRO_VERSION = "v1.0"
+
+BUILDNAME = "Freenivi ${DISTRO_VERSION}"
+
+DISTRO_FEATURES = "alsa ext2 largefile usbhost wifi xattr nfs zeroconf wayland ${DISTRO_FEATURES_LIBC} systemd opengl"
+
+DISTRO_FEATURES_remove = "x11"
+
+VIRTUAL-RUNTIME_init_manager = "systemd"
+

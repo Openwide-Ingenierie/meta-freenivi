@@ -1,0 +1,11 @@
+
+do_configure_prepend() {
+	# adapt qmake.conf to our needs
+	sed -i 's!load(qt_config)!!' ${S}/mkspecs/linux-oe-g++/qmake.conf
+	cat >> ${S}/mkspecs/linux-oe-g++/qmake.conf << EOF
+#	QMAKE_LIBS_EGL         += -lEGL
+#	QMAKE_LIBS_OPENGL_ES2  += -lGLESv2 -lEGL
+#	QMAKE_LIBS_OPENVG      += -lOpenVG -lEGL
+#	load(qt_config)
+	EOF
+}
