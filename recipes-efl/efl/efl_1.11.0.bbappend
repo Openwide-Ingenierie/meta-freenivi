@@ -13,6 +13,7 @@ DEPENDS_remove = "libxext \
 RDEPENDS_ecore_remove = "ecore-x"
 
 #FIXME build error when --enable-wayland is set
+# set it only when opengl is in distro_features
 CFLAGS_append = " -DEGL_API_FB "
 
 #TODO systemd
