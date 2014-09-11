@@ -44,8 +44,8 @@ EXTRA_OECONF_append_class-native = " \
     --disable-image-loader-xpm \
 "
 
-PACKAGECONFIG ?= "opengl-es gstreamer1 pulseaudio luajit"
-PACKAGECONFIG_class-native = "luajit"
+PACKAGECONFIG ?= "opengl-es gstreamer1 pulseaudio lua-old"
+PACKAGECONFIG_class-native = "lua-old"
 
 # sort of tri-state
 PACKAGECONFIG[opengl-full] = "--with-opengl=full,,virtual/libgl"

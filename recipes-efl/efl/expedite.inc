@@ -11,7 +11,6 @@ EXTRA_OECONF = "\
     --x-includes=${STAGING_INCDIR}/X11 \
     --x-libraries=${STAGING_LIBDIR} \
     --enable-simple-x11 \
-\
     --enable-software-x11 \
     --enable-xrender-x11 \
     --enable-software-16-x11 \
