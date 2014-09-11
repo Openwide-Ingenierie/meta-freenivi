@@ -14,13 +14,14 @@ do_configure_prepend() {
 }
 
 do_install_prepend () {
-    for i in `find ${S}/ -name "*.pc" -type f` ; do \
+    for i in `find ${B}/ -name "*.pc" -type f` ; do \
         sed -i -e 's:-L${STAGING_LIBDIR}:-L\$\{libdir\}:g' -e 's:-I${STAGING_LIBDIR}:-I\$\{libdir\}:g' -e 's:-I${STAGING_INCDIR}:-I\$\{includedir\}:g' $i
     done
 }
 
 PACKAGES =+ "${PN}-themes"
 PACKAGES += "${PN}-tests"
+PACKAGES += "${PN}-eolian"
 
 FILES_${PN} = "${libdir}/*.so.* \
                ${libdir}/edje/modules/${PN}/*/module.so \
@@ -47,6 +48,10 @@ FILES_${PN}-dev   += "${bindir}/${PN}-config \
                       ${libdir}/${PN}/*/*.la \
                       ${datadir}/${PN}/edje_externals \
                       ${libdir}/edje/modules/${PN}/*/module.la \
+"
+
+FILES_${PN}-eolian = " \
+    ${datadir}/eolian/include \
 "
 
 FILES_${PN}-staticdev += "${libdir}/${BPN}/*/*.a"
