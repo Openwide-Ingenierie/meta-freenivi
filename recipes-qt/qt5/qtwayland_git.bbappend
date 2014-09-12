@@ -1,8 +1,8 @@
 
-#stable branch no longer exists
+# Stable branch no longer exists
 QT_MODULE_BRANCH = "5.4"
 
-#workaround from tizen to make the touchscreen working in qtwebkitdemo
+# Workaround from tizen to make the touchscreen working in qtwebkitdemo
 FILESEXTRAPATHS := "${THISDIR}/${PN}"
 
 SRC_URI += " \

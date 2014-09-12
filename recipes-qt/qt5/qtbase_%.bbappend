@@ -1,1 +1,1 @@
-PACKAGECONFIG_GL = "${@base_contains('DISTRO_FEATURES', 'wayland', 'gles', '', d)}"
+PACKAGECONFIG_GL = "${@base_contains('DISTRO_FEATURES', 'wayland', 'gles2', '', d)}"
