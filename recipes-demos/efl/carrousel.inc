@@ -6,5 +6,5 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 inherit autotools
 
-DEPENDS_{PN} = "elementary"
-RDEPENDS_${PN} = "elementary"
+DEPENDS_{PN} = "elementary evas lua"
+RDEPENDS_${PN} = "elementary evas lua"

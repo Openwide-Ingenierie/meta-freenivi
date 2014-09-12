@@ -20,7 +20,7 @@ IMAGE_INSTALL += "qtwebkit-examples-examples"
 
 #IMAGE_INSTALL += "bluez5 bluez5-obex"
 IMAGE_INSTALL += "ofono"
-IMAGE_INSTALL += "connman"
+#IMAGE_INSTALL += "connman"
 IMAGE_INSTALL += "weston weston-examples"
 
 #Install tools
@@ -35,3 +35,16 @@ IMAGE_INSTALL += "qtwayland qtwayland-plugins "
 
 #Fonts
 IMAGE_INSTALL += "ttf-bitstream-vera qtbase-fonts-ttf-dejavu"
+
+#Efl
+IMAGE_INSTALL += "elementary elementary-tests edje-utils evas"
+
+#Bench efl
+PREFERRED_VERSION_expedite = "1.11"
+IMAGE_INSTALL += "expedite perf"
+
+#Carrousel demo app
+IMAGE_INSTALL += "carrousel"
+
+#REMOVE THIS
+BBMASK = "meta-fsl-arm/recipes-graphics/wayland/"
