@@ -1,0 +1,28 @@
+OWI Freenivi meta layer
+===============================================================================
+
+Distro layer for freenivi-os
+
+This layer depends on:
+    
+URI: git://github.com/openembedded/oe-core.git
+branch: daisy
+revision: HEAD
+
+URI: https://github.com/meta-qt5/meta-qt5.git
+branch: daisy
+revision: HEAD
+
+URI: https://github.com/openembedded/meta-oe.git
+branch: daisy
+revision: HEAD
+(for meta-oe and meta-ruby)
+
+URI: https://github.com/Freescale/meta-fsl-arm.git
+branch: daisy
+revision: HEAD
+
+URI: https://github.com/Freescale/meta-fsl-arm-extra.git
+branch: daisy
+revision: HEAD
+
