@@ -1,21 +1,23 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 
-SRC_URI_append_mx6 = " file://0001-Add-Vivante-EGL-support.patch \
-            file://0002-Add-Vivante-GAL2D-support.patch \
-            file://0003-Distorted-line-and-shadow-if-use-2d-com.patch \
-            file://0004-Desktop-shell-Don-t-assume-there-is-a-pointer.patch \
-            file://0005-Enable-GAL2D-compositor-in-SoloLite.patch \
-            file://0006-Change-GAL2D-compositor-to-be-default-i.patch \
-	    file://weston.service \
-	    file://weston.ini \
-	    file://.profile \
-	    file://qtwebbrowser.png \
-	    "
+SRC_URI_append_mx6 = " \
+    file://0001-Add-Vivante-EGL-support.patch \
+    file://0002-Add-Vivante-GAL2D-support.patch \
+    file://0003-Distorted-line-and-shadow-if-use-2d-com.patch \
+    file://0004-Desktop-shell-Don-t-assume-there-is-a-pointer.patch \
+    file://0005-Enable-GAL2D-compositor-in-SoloLite.patch \
+    file://0006-Change-GAL2D-compositor-to-be-default-i.patch \
+    "
+SRC_URI_append = " \
+    file://weston.service \
+    file://weston.ini \
+    file://.profile \
+    file://qtwebbrowser.png \
+    "
 
 inherit systemd
 
 SYSTEMD_SERVICE_${PN} = "weston.service"
-
 
 PACKAGECONFIG_mx6 = "fbdev"
 PACKAGECONFIG_append_mx6q = " egl cairo-glesv2"
@@ -52,7 +54,7 @@ EXTRA_OEMAKE_append_mx6sx = " \
     FB_COMPOSITOR_LIBS="-lGLESv2 -lEGL -lwayland-server -lxkbcommon" \
     "
 
-do_install_append_mx6 () {
+do_install_append () {
 
     # install weston systemd service file
     install -d ${D}${systemd_unitdir}/system
@@ -64,9 +66,10 @@ do_install_append_mx6 () {
     install -m 0644 ${WORKDIR}/qtwebbrowser.png ${D}${ROOT_HOME}/qtwebbrowser.png
 }
 
-FILES_${PN}_append_mx6 = " ${systemd_unitdir}/system/weston.service \
-		       	   ${ROOT_HOME}/* \
-			   ${ROOT_HOME}/.profile \
-			   "
+FILES_${PN}_append = " \
+    ${systemd_unitdir}/system/weston.service \
+    ${ROOT_HOME}/* \
+    ${ROOT_HOME}/.profile \
+    "
 
 PACKAGE_ARCH_mx6 = "${MACHINE_ARCH}"
