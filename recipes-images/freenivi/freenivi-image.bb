@@ -23,6 +23,8 @@ IMAGE_INSTALL += "ofono"
 #IMAGE_INSTALL += "connman"
 IMAGE_INSTALL += "weston weston-examples"
 
+IMAGE_INSTALL += "autologin"
+
 #Install tools
 IMAGE_INSTALL += "connman-client"
 
