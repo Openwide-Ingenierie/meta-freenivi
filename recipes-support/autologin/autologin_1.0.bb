@@ -13,13 +13,13 @@ SRC_URI = " \
            "
 
 LIC_FILES_CHKSUM = " \
-                    file://${WORKDIR}/autologin@.service;md5=691885ec6c1142d5883a88725ee1f96c"
+                    file://${WORKDIR}/autologin@.service;md5=691885ec6c1142d5883a88725ee1f96c
                     "
 
 S = "${WORKDIR}"
 
 AUTOLOGIN_USERNAME ?= "root"
-AUTOLOGIN_TTY ?= tty1
+AUTOLOGIN_TTY ?= "tty1"
 
 do_install () {
   install -d 0755 ${D}/lib/systemd/system
