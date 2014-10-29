@@ -7,6 +7,10 @@ LICENSE = "MIT"
 #TODO: see if we can inherit core-image-weston
 inherit core-image
 
+# Build u-boot for sabrelite target. 
+# Associated recipe is in oe-core/meta/recipe-bsp/u-boot/
+IMAGE_INSTALL_append_imx6qsabrelite = " u-boot"
+
 IMAGE_INSTALL += "tzdata tzdata-europe"
 IMAGE_INSTALL += "avahi-utils"
 IMAGE_INSTALL += "procps"
