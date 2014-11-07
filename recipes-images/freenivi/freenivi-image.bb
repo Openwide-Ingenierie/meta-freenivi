@@ -11,6 +11,8 @@ inherit core-image
 # Associated recipe is in oe-core/meta/recipe-bsp/u-boot/
 IMAGE_INSTALL_append_imx6qsabrelite = " u-boot"
 
+IMAGE_INSTALL += "openssh-sftp-server qtbase qtbase-fonts qtbase-plugins qtbase-tools qtquickcontrols-qmlplugins qtdeclarative-qmlplugins"
+
 IMAGE_INSTALL += "tzdata tzdata-europe"
 IMAGE_INSTALL += "avahi-utils"
 IMAGE_INSTALL += "procps"
@@ -27,7 +29,7 @@ IMAGE_INSTALL += "ofono"
 #IMAGE_INSTALL += "connman"
 IMAGE_INSTALL += "weston weston-examples"
 
-IMAGE_INSTALL += "autologin"
+IMAGE_INSTALL += "autologin config"
 
 #Install tools
 IMAGE_INSTALL += "connman-client"
