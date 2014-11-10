@@ -7,4 +7,5 @@ FILESEXTRAPATHS_append := "${THISDIR}/${PN}"
 
 SRC_URI += " \
     file://qt_touch_workaround.patch \
+    file://qt_touch_location.patch \
 "
