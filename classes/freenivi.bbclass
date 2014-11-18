@@ -16,7 +16,6 @@ IMAGE_INSTALL += "openssl ca-certificates"
 #IMAGE_INSTALL += "edje-utils elementary-tests"
 IMAGE_INSTALL += "cinematicexperience"
 IMAGE_INSTALL += "qtwebkit"
-IMAGE_INSTALL += "qtwebkit-examples-examples"
 
 #IMAGE_INSTALL += "bluez5 bluez5-obex"
 IMAGE_INSTALL += "ofono"
