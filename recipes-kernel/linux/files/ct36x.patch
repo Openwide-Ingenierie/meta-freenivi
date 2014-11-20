@@ -591,10 +591,10 @@ index 0000000..1491057
 +#endif
 diff --git a/drivers/input/touchscreen/ct36x/ct36x_ts.c b/drivers/input/touchscreen/ct36x/ct36x_ts.c
 new file mode 100644
-index 0000000..4007e72
+index 0000000..2520418
 --- /dev/null
 +++ b/drivers/input/touchscreen/ct36x/ct36x_ts.c
-@@ -0,0 +1,355 @@
+@@ -0,0 +1,366 @@
 +#include "ct36x_priv.h"
 +#include <linux/of_gpio.h>
 +#include <linux/async.h>
@@ -748,6 +748,17 @@ index 0000000..4007e72
 +    if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C)) {
 +        dev_err(&client->dev, "I2C-Adapter doesn't support I2C_FUNC_I2C\n");
 +        return -ENODEV;
++    }
++	char buffer;
++	struct i2c_msg pkt = {
++		client->addr,
++		I2C_M_RD,
++		sizeof(buffer),
++		&buffer
++	};
++	if (i2c_transfer(client->adapter, &pkt, 1) != 1) {
++		dev_err(&client->dev, "%s: Could not detect touch screen.\n", __func__);
++		return -ENODEV;
 +    }
 +
 +    ts = devm_kzalloc(&client->dev, sizeof(struct ct36x_data), GFP_KERNEL);
