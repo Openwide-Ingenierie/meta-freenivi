@@ -1,6 +1,9 @@
 inherit core-image
 
+FREENIVI_IMAGE_NAME = "${MACHINE}-freenivi-full"
+
 IMAGE_FEATURES += "splash \
+                   tools-debug \
                    package-management \
                    ssh-server-dropbear \
                    "
@@ -28,7 +31,8 @@ IMAGE_INSTALL += "weston \
 IMAGE_INSTALL += "elementary \
                   elementary-tests \
                   edje-utils \
-                  evas"
+                  evas \
+                  ecore-evas"
 # EFL Bench
 PREFERRED_VERSION_expedite = "1.11"
 IMAGE_INSTALL += "expedite \
