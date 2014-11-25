@@ -17,6 +17,7 @@ IMAGE_INSTALL += "qtbase \
                   qtquickcontrols-qmlplugins \
                   qtdeclarative-qmlplugins \
                   qtwebkit \
+                  qtwebkit-examples-examples \
                   "
 # Qt Wayland
 IMAGE_INSTALL += "qtwayland \
@@ -44,7 +45,7 @@ IMAGE_INSTALL += "ttf-bitstream-vera"
 # Carrousel demo app
 IMAGE_INSTALL += "carrousel"
 
-IMAGE_INSTALL += "openssh-sftp"
+IMAGE_INSTALL += "openssh-sftp openssh-sftp-server"
 IMAGE_INSTALL += "autologin config"
 IMAGE_INSTALL += "tzdata tzdata-europe"
 IMAGE_INSTALL += "avahi-utils"
