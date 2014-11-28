@@ -46,7 +46,7 @@ IMAGE_INSTALL += "ttf-bitstream-vera"
 IMAGE_INSTALL += "carrousel"
 
 IMAGE_INSTALL += "openssh-sftp openssh-sftp-server"
-IMAGE_INSTALL += "autologin config"
+IMAGE_INSTALL += "autologin"
 IMAGE_INSTALL += "tzdata tzdata-europe"
 IMAGE_INSTALL += "avahi-utils"
 IMAGE_INSTALL += "procps"
