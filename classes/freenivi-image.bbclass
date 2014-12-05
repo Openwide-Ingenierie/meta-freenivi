@@ -45,6 +45,7 @@ IMAGE_INSTALL += "ttf-bitstream-vera"
 # Carrousel demo app
 IMAGE_INSTALL += "carrousel"
 
+IMAGE_INSTALL += "dhcp-client"
 IMAGE_INSTALL += "openssh-sftp openssh-sftp-server"
 IMAGE_INSTALL += "autologin"
 IMAGE_INSTALL += "tzdata tzdata-europe"
