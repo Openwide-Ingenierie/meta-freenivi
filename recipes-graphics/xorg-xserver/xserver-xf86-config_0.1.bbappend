@@ -1,1 +1,1 @@
-FILESEXTRAPATHS_append := "${THISDIR}/${PN}"
+FILESEXTRAPATHS_append := ":${THISDIR}/${PN}"
