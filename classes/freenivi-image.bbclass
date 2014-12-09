@@ -35,7 +35,6 @@ IMAGE_INSTALL += "elementary \
                   evas \
                   ecore-evas"
 # EFL Bench
-PREFERRED_VERSION_expedite = "1.11"
 IMAGE_INSTALL += "expedite \
                   perf"
 
