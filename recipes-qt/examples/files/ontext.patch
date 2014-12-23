@@ -1,0 +1,35 @@
+diff --git a/content/SettingsView.qml b/content/SettingsView.qml
+index 7944803..ae5b54a 100644
+--- a/content/SettingsView.qml
++++ b/content/SettingsView.qml
+@@ -127,7 +127,7 @@ Item {
+             Switch {
+                 text: "Do you l-o-v-e colors?"
+                 checked: settings.showColors
+-                onText: "Yes"
++                oText: "Yes"
+                 offText: "No!"
+                 onCheckedChanged: {
+                     settings.showColors = checked;
+diff --git a/content/Switch.qml b/content/Switch.qml
+index 967c03f..b1fd30b 100644
+--- a/content/Switch.qml
++++ b/content/Switch.qml
+@@ -6,7 +6,7 @@ Item {
+ 
+     property alias text: textItem.text
+     property bool checked: false
+-    property string onText: "On"
++    property string oText: "On"
+     property string offText: "Off"
+ 
+     QtObject {
+@@ -120,7 +120,7 @@ Item {
+             color: "#000000"
+             font.pixelSize: 18
+             font.bold: true
+-            text: onText
++            text: oText
+         }
+         Text {
+             anchors.verticalCenter: parent.verticalCenter
