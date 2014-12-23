@@ -3,7 +3,8 @@ inherit core-image
 FREENIVI_IMAGE_NAME = "${MACHINE}-freenivi-full"
 
 IMAGE_FEATURES += "splash \
-                   tools-debug \
+                   tools-debug \ 
+                   debug-tweaks \
                    package-management \
                    ssh-server-dropbear \
                    "
