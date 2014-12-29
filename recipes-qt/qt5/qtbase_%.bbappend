@@ -1,5 +1,5 @@
-PACKAGECONFIG_GL = "${@base_contains('DISTRO_FEATURES', 'wayland', 'gles', '', d)}"
+PACKAGECONFIG_GL = "${@base_contains('DISTRO_FEATURES', 'wayland', 'gles2', '', d)}"
 
 DEPENDS += "cups virtual/mesa"
 
-PACKAGECONFIG_append = " icu examples accessibility"
+PACKAGECONFIG += "icu examples accessibility"
