@@ -1,3 +1,4 @@
+# remove useless dependency on SDL
 DEPENDS_remove = "libsdl"
 
 # When using wayland, remove x11 related dependencies
