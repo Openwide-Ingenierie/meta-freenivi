@@ -1,19 +1,14 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}:"
 
-SRC_URI_append = " \
-    file://.profile \
-    file://weston.ini \
-    file://qtwebbrowser.png \
+SRC_URI += " \
+    file://weston.sh \
 "
 
-do_install_append () {
-    install -d ${D}${ROOT_HOME}
-    install -m 0644 ${WORKDIR}/.profile ${D}${ROOT_HOME}/.profile
-    install -m 0644 ${WORKDIR}/weston.ini ${D}${ROOT_HOME}/weston.ini
-    install -m 0644 ${WORKDIR}/qtwebbrowser.png ${D}${ROOT_HOME}/qtwebbrowser.png
+do_install_append() {
+    install -d ${D}${sysconfdir}/profile.d/
+    install -m 0644 ${WORKDIR}/weston.sh ${D}${sysconfdir}/profile.d/weston.sh
 }
 
-FILES_${PN}_append = " \
-    ${ROOT_HOME}/.profile \
-    ${ROOT_HOME}/* \
+FILES_${PN} += " \
+    ${sysconfdir}/profile.d/weston.sh \
 "
