@@ -8,6 +8,7 @@ SRC_URI = " \
     file://weston.ini \
     file://browser.png \
     file://carrousel.png \
+    file://cinematicexperience.png \
 "
 
 S = "${WORKDIR}"
@@ -16,13 +17,15 @@ do_install_append() {
     install -d ${D}${sysconfdir}/xdg/weston
     install -m 0644 ${WORKDIR}/weston.ini ${D}${sysconfdir}/xdg/weston/weston.ini
     install -d ${D}${datadir}/weston
-    install -m 0644 ${WORKDIR}/qtwebbrowser.png ${D}${datadir}/weston/qtwebbrowser.png
+    install -m 0644 ${WORKDIR}/browser.png ${D}${datadir}/weston/browser.png
     install -m 0644 ${WORKDIR}/carrousel.png ${D}${datadir}/weston/carrousel.png
+    install -m 0644 ${WORKDIR}/cinematicexperience.png ${D}${datadir}/weston/cinematicexperience.png
 }
+
 
 FILES_${PN} += " \
     ${sysconfdir}/xdg/weston \
     ${datadir}/weston \
 "
 
-RDEPENDS_${PN} = "weston qtwebkit-examples-examples carrousel"
+RDEPENDS_${PN} = "weston qtwebkit-examples-examples carrousel cinematicexperience"
