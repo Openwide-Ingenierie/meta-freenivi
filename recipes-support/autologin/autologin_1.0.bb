@@ -1,20 +1,14 @@
 SUMMARY = "Autologin tool"
 DESCRIPTION = "A simple tool to autologin based on systemd rules"
-PACKAGES = "${PN}"
-PR = "r0"
-
 LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://COPYING;md5=872ee2b4639e730fc3187ab05f04457f"
 
 DEPENDS = "sed-native"
-RDEPENDS_${PN} = "systemd"
 
 SRC_URI = " \
-           file://autologin@.service \
-           "
-
-LIC_FILES_CHKSUM = " \
-                    file://${WORKDIR}/autologin@.service;md5=691885ec6c1142d5883a88725ee1f96c \
-                    "
+    file://autologin@.service \
+    file://COPYING \
+"
 
 S = "${WORKDIR}"
 
@@ -22,20 +16,21 @@ AUTOLOGIN_USERNAME ?= "root"
 AUTOLOGIN_TTY ?= "tty1"
 
 do_install () {
-  install -d 0755 ${D}/lib/systemd/system
-  install -m 0644 ${WORKDIR}/autologin@.service ${D}/lib/systemd/system
-  sed -i 's/@@USERNAME@@/${AUTOLOGIN_USERNAME}/' ${D}/lib/systemd/system/autologin@.service
+  install -d 0755 ${D}${systemd_unitdir}/system
+  install -m 0644 ${WORKDIR}/autologin@.service ${D}${systemd_unitdir}/system
+  sed -i 's/@@USERNAME@@/${AUTOLOGIN_USERNAME}/' ${D}${systemd_unitdir}/system/autologin@.service
 }
 
 pkg_postinst_${PN} () {
-  rm -rf /etc/systemd/system/getty.target.wants/getty@${AUTOLOGIN_TTY}.service
-  ln -s ${systemd_unitdir}/system/autologin@.service /etc/systemd/system/getty.target.wants/getty@${AUTOLOGIN_TTY}.service
+  rm -rf ${sysconfdir}/systemd/system/getty.target.wants/getty@${AUTOLOGIN_TTY}.service
+  ln -s ${systemd_unitdir}/system/autologin@.service ${sysconfdir}/systemd/system/getty.target.wants/getty@${AUTOLOGIN_TTY}.service
 }
 
 pkg_prerm_${PN} () {
-  rm -rf /etc/systemd/system/getty.target.wants/getty@${AUTOLOGIN_TTY}.service
-  ln -s ${systemd_unitdir}/system/getty@.service /etc/systemd/system/getty.target.wants/getty@${AUTOLOGIN_TTY}.service
+  rm -rf ${sysconfdir}/systemd/system/getty.target.wants/getty@${AUTOLOGIN_TTY}.service
+  ln -s ${systemd_unitdir}/system/getty@.service ${sysconfdir}/systemd/system/getty.target.wants/getty@${AUTOLOGIN_TTY}.service
 }
 
-PACKAGES = "${PN}"
-FILES_${PN} = "/lib/systemd/system/autologin@.service"
+FILES_${PN} = "${systemd_unitdir}/system/autologin@.service"
+
+RDEPENDS_${PN} = "systemd"
