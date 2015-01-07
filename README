@@ -1,28 +1,48 @@
-OWI Freenivi meta layer
-===============================================================================
+meta-freenivi, the Freenivi distribution
+========================================
 
-Distro layer for freenivi-os
+meta-freenivi is a layer containing the definition of the Freenivi distribution.
+The goal of the layer is to define a GENIVI compliant distribution for the
+project Freenivi, with In-Vehicule Infotainement (IVI) support.
 
-This layer depends on:
-    
-URI: git://github.com/openembedded/oe-core.git
-branch: daisy
-revision: HEAD
 
-URI: https://github.com/meta-qt5/meta-qt5.git
-branch: daisy
-revision: HEAD
+Layer Dependencies
+------------------
 
-URI: https://github.com/openembedded/meta-oe.git
-branch: daisy
-revision: HEAD
-(for meta-oe and meta-ruby)
+URI: https://github.com/openembedded/oe-core
+> branch:   dizzy
+> revision: HEAD
 
-URI: https://github.com/Freescale/meta-fsl-arm.git
-branch: daisy
-revision: HEAD
+URI: https://github.com/openembedded/meta-oe
+> layer:    meta-oe, meta-efl
+> branch:   dizzy
+> revision: HEAD
 
-URI: https://github.com/Freescale/meta-fsl-arm-extra.git
-branch: daisy
-revision: HEAD
+URI: https://github.com/meta-qt5/meta-qt5
+> branch:   dizzy
+> revision: HEAD
 
+
+Supported Machines
+------------------
+
+The list of supported machines is:
+* emulator-x86: available with layer meta-freenivi-sdk
+* emulator-arm: available with layer meta-freenivi-sdk
+* imx6qsabrelite: available with layer meta-freenivi-bsp
+* nitrogen6x: available with layer meta-freenivi-bsp
+
+
+Build a Freenivi image
+----------------------
+
+You can build a QEMU Freenivi image (qemuarm, qemux86 or qemux86_64) using the
+following steps:
+
+1. Run the following command:
+    $ source <path to meta-oe>/oe-init-build-env
+
+2. Build freenivi-image
+    $ bitbake freenivi-image
+
+You can find the produced images in the directory tmp/deploy/images/$MACHINE/
