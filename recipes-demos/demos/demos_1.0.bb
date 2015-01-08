@@ -16,6 +16,7 @@ S = "${WORKDIR}"
 do_install_append() {
     install -d ${D}${sysconfdir}/xdg/weston
     install -m 0644 ${WORKDIR}/weston.ini ${D}${sysconfdir}/xdg/weston/weston.ini
+    sed -i "s%@libexecdir@%${libdir}/weston/%" ${D}${sysconfdir}/xdg/weston/weston.ini
     install -d ${D}${datadir}/weston
     install -m 0644 ${WORKDIR}/browser.png ${D}${datadir}/weston/browser.png
     install -m 0644 ${WORKDIR}/carrousel.png ${D}${datadir}/weston/carrousel.png
