@@ -1,0 +1,15 @@
+diff --git a/Qt5_CinematicExperience.qml b/Qt5_CinematicExperience.qml
+index ffc5db9..58b8b6d 100644
+--- a/Qt5_CinematicExperience.qml
++++ b/Qt5_CinematicExperience.qml
+@@ -4,8 +4,8 @@ import "content"
+ Item {
+     id: mainWindow
+ 
+-    width: 1920
+-    height: 1080
++    width: 1000
++    height: 639
+ 
+     QtObject {
+         id: settings
