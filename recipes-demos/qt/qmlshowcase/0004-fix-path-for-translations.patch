@@ -1,0 +1,42 @@
+From 8b7ee7c3fbb231e32dceea6c692b7e131f53be85 Mon Sep 17 00:00:00 2001
+From: Alexis Cellier <alexis.cellier@openwide.fr>
+Date: Wed, 14 Jan 2015 14:24:05 +0100
+Subject: [PATCH 4/4] fix path for translations
+
+---
+ languagechooser.cpp | 9 ++++-----
+ 1 file changed, 4 insertions(+), 5 deletions(-)
+
+diff --git a/languagechooser.cpp b/languagechooser.cpp
+index da7e3ee..f70a3aa 100644
+--- a/languagechooser.cpp
++++ b/languagechooser.cpp
+@@ -16,15 +16,16 @@ LanguageChooser::LanguageChooser(QObject *parent)
+ {
+     QStringList filter;
+     filter << "*.qm";
+-    QDir transDir("translations");
++    QString path = QCoreApplication::applicationDirPath() + "/../translations/";
++    QDir transDir(path);
+     QStringList allFiles = transDir.entryList(filter);
+ 
+     foreach(QString file, allFiles) {
+         QString languageName = file.left(file.lastIndexOf("."));
+ 
+         allTranslation[languageName] = new QTranslator();
+-        if(!allTranslation[languageName]->load("translations/" + file)) {
+-            qWarning() << "tried to load file: " << "translations/" + file
++        if(!allTranslation[languageName]->load(path + file)) {
++            qWarning() << "tried to load file: " << path + file
+                        << " ... but without success! .. removing translations";
+             allTranslation.remove(languageName);
+         }
+@@ -54,5 +55,3 @@ void LanguageChooser::setLanguage(QString l)
+     qDebug() << "new language got set: " << mLanguage;
+     emit languageChanged();
+ }
+-
+-
+-- 
+2.1.3
+

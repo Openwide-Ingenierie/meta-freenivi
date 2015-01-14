@@ -1,0 +1,49 @@
+From 52cfed0b68cb8f8733da581a9466724de9063991 Mon Sep 17 00:00:00 2001
+From: Alexis Cellier <alexis.cellier@openwide.fr>
+Date: Wed, 14 Jan 2015 14:21:40 +0100
+Subject: [PATCH 3/4] fix naming of menu root
+
+---
+ qml/Menu.qml | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/qml/Menu.qml b/qml/Menu.qml
+index 0c7e945..655b498 100644
+--- a/qml/Menu.qml
++++ b/qml/Menu.qml
+@@ -168,8 +168,8 @@ Item {
+                 }
+                 Button {
+                     id: button11
+-                    width: menu.activeItem == button11 ? col.activeWidth : 150
+-                    height: menu.activeItem == button11 ? col.activeHeight : 50
++                    width: root.activeItem == button11 ? col.activeWidth : 150
++                    height: root.activeItem == button11 ? col.activeHeight : 50
+                     text: qsTr("PinchArea") + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+                         root.activated(button11, "demo11.qml")
+@@ -177,8 +177,8 @@ Item {
+                 }
+ //                Button {
+ //                    id: button12
+-//                    width: menu.activeItem == button12 ? col.activeWidth : 150
+-//                    height: menu.activeItem == button12 ? col.activeHeight : 50
++//                    width: root.activeItem == button12 ? col.activeWidth : 150
++//                    height: root.activeItem == button12 ? col.activeHeight : 50
+ //                    text: "NativeGL"
+ //                    onClicked: {
+ //                        root.activated(button12, "demo12.qml")
+@@ -186,8 +186,8 @@ Item {
+ //                }
+                 Button {
+                     id: button13
+-                    width: menu.activeItem == button13 ? col.activeWidth : 150
+-                    height: menu.activeItem == button13 ? col.activeHeight : 50
++                    width: root.activeItem == button13 ? col.activeWidth : 150
++                    height: root.activeItem == button13 ? col.activeHeight : 50
+                     text: qsTr("About") + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+                         root.activated(button13, "demo13.qml")
+-- 
+2.1.3
+

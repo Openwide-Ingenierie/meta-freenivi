@@ -9,6 +9,7 @@ SRC_URI = " \
     file://browser.png \
     file://carrousel.png \
     file://cinematicexperience.png \
+    file://qmlshowcase.png \
 "
 
 S = "${WORKDIR}"
@@ -21,6 +22,7 @@ do_install_append() {
     install -m 0644 ${WORKDIR}/browser.png ${D}${datadir}/weston/browser.png
     install -m 0644 ${WORKDIR}/carrousel.png ${D}${datadir}/weston/carrousel.png
     install -m 0644 ${WORKDIR}/cinematicexperience.png ${D}${datadir}/weston/cinematicexperience.png
+    install -m 0644 ${WORKDIR}/qmlshowcase.png ${D}${datadir}/weston/qmlshowcase.png
 }
 
 
@@ -29,4 +31,4 @@ FILES_${PN} += " \
     ${datadir}/weston \
 "
 
-RDEPENDS_${PN} = "weston qtwebkit-examples-examples carrousel cinematicexperience"
+RDEPENDS_${PN} = "weston qtwebkit-examples-examples carrousel cinematicexperience qmlshowcase"

@@ -1,0 +1,25 @@
+From 2a1f55b6b1cd0880052a797917348012649af647 Mon Sep 17 00:00:00 2001
+From: Alexis Cellier <alexis.cellier@openwide.fr>
+Date: Wed, 14 Jan 2015 14:06:46 +0100
+Subject: [PATCH 1/4] demo7: remove useless attributes that create warnings
+
+---
+ qml/demo7.qml | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/qml/demo7.qml b/qml/demo7.qml
+index 0524af9..2a32b35 100644
+--- a/qml/demo7.qml
++++ b/qml/demo7.qml
+@@ -23,8 +23,6 @@ import QtQuick 2.0
+ Flickable {
+     id: root
+     anchors.fill: parent
+-    contentWidth: content.width < root.width ? root.width : content.width
+-    contentHeight: content.height < root.height ? root.height : content.height
+ 
+     Flipable {
+         id: content
+-- 
+2.1.3
+

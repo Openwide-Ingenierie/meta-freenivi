@@ -1,0 +1,150 @@
+From 192a40987b31f67e04c42b51389a2c94cccf7774 Mon Sep 17 00:00:00 2001
+From: Alexis Cellier <alexis.cellier@openwide.fr>
+Date: Wed, 14 Jan 2015 14:20:23 +0100
+Subject: [PATCH 2/4] fix menu button color
+
+---
+ qml/Button.qml |  5 +++++
+ qml/Menu.qml   | 37 ++++++++++++++++---------------------
+ 2 files changed, 21 insertions(+), 21 deletions(-)
+
+diff --git a/qml/Button.qml b/qml/Button.qml
+index 70c013b..63ee8a1 100644
+--- a/qml/Button.qml
++++ b/qml/Button.qml
+@@ -30,6 +30,11 @@ BorderImage {
+     property alias text : buttonLabel.text
+     signal clicked()
+     signal foobar()
++    signal activated()
++    signal deactivated()
++
++    onActivated: root.source = "./media/button_focus.png"
++    onDeactivated: root.source = ""
+ 
+     Behavior on scale {
+         NumberAnimation { duration: 100 }
+diff --git a/qml/Menu.qml b/qml/Menu.qml
+index 2539928..0c7e945 100644
+--- a/qml/Menu.qml
++++ b/qml/Menu.qml
+@@ -27,10 +27,15 @@ Item {
+     property variant activeItem: button1
+     signal selected(string demo)
+ 
+-    function activated(demo) {
++    function activated(item, demo) {
++        activeItem.deactivated()
+         root.selected(demo)
++        activeItem = item
++        activeItem.activated()
+     }
+ 
++    Component.onCompleted: activeItem.activated()
++
+     width: 160
+     height: 600
+ 
+@@ -103,8 +108,7 @@ Item {
+                     height: root.activeItem == button1 ? col.activeHeight : 50
+                     width: root.activeItem == button1 ? col.activeWidth : 150
+                     onClicked: {
+-                        root.activeItem = button1
+-                        root.activated("demo1.qml")
++                        root.activated(button1, "demo1.qml")
+                     }
+                 }
+                 Button {
+@@ -113,8 +117,7 @@ Item {
+                     height: root.activeItem == button2 ? col.activeHeight : 50
+                     text: qsTr("Rotation") + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+-                        root.activeItem = button2
+-                        root.activated("demo2.qml")
++                        root.activated(button2, "demo2.qml")
+                     }
+                 }
+ 
+@@ -124,8 +127,7 @@ Item {
+                     height: root.activeItem == button3 ? col.activeHeight : 50
+                     text: qsTr("Color")  + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+-                        root.activeItem = button3
+-                        root.activated("demo3.qml")
++                        root.activated(button3, "demo3.qml")
+                     }
+                 }
+                 Button {
+@@ -134,8 +136,7 @@ Item {
+                     height: root.activeItem == button6 ? col.activeHeight : 50
+                     text: qsTr("List View") + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+-                        root.activeItem = button6
+-                        root.activated("demo6.qml")
++                        root.activated(button6, "demo6.qml")
+                     }
+                 }
+                 Button {
+@@ -144,8 +145,7 @@ Item {
+                     height: root.activeItem == button7 ? col.activeHeight : 50
+                     text: qsTr("Grid View") + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+-                        root.activeItem = button7
+-                        root.activated("demo7.qml")
++                        root.activated(button7, "demo7.qml")
+                     }
+                 }
+                 Button {
+@@ -154,8 +154,7 @@ Item {
+                     height: root.activeItem == button8 ? col.activeHeight : 50
+                     text: qsTr("Path View") + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+-                        root.activeItem = button8
+-                        root.activated("demo8.qml")
++                        root.activated(button8, "demo8.qml")
+                     }
+                 }
+                 Button {
+@@ -164,8 +163,7 @@ Item {
+                     height: root.activeItem == button10 ? col.activeHeight : 50
+                     text: "Qt3D"
+                     onClicked: {
+-                        root.activeItem = button10
+-                        root.activated("demo10.qml")
++                        root.activated(button10, "demo10.qml")
+                     }
+                 }
+                 Button {
+@@ -174,8 +172,7 @@ Item {
+                     height: menu.activeItem == button11 ? col.activeHeight : 50
+                     text: qsTr("PinchArea") + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+-                        root.activeItem = button11
+-                        root.activated("demo11.qml")
++                        root.activated(button11, "demo11.qml")
+                     }
+                 }
+ //                Button {
+@@ -184,8 +181,7 @@ Item {
+ //                    height: menu.activeItem == button12 ? col.activeHeight : 50
+ //                    text: "NativeGL"
+ //                    onClicked: {
+-//                        root.activeItem = button12
+-//                        root.activated("demo12.qml")
++//                        root.activated(button12, "demo12.qml")
+ //                    }
+ //                }
+                 Button {
+@@ -194,8 +190,7 @@ Item {
+                     height: menu.activeItem == button13 ? col.activeHeight : 50
+                     text: qsTr("About") + display.languageChooser.dynamicQsTr;
+                     onClicked: {
+-                        root.activeItem = button13
+-                        root.activated("demo13.qml")
++                        root.activated(button13, "demo13.qml")
+                     }
+                 }
+             }
+-- 
+2.1.3
+
