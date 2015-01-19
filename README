@@ -19,8 +19,8 @@ URI: https://github.com/openembedded/meta-oe
 > revision: HEAD
 
 URI: https://github.com/meta-qt5/meta-qt5
-> branch:   dizzy
-> revision: HEAD
+> branch:   master 
+> revision: 8b040e58b263741ea19e1826308e22ab3cae585b
 
 
 Supported Machines
