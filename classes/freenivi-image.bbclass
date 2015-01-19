@@ -19,6 +19,8 @@ IMAGE_INSTALL += " \
     qtbase-tools \
     qtquickcontrols-qmlplugins \
     qtdeclarative-qmlplugins \
+    qtmultimedia-qmlplugins \
+    qt3d-qmlplugins \
     qtwebkit \
 "
 
