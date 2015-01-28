@@ -1,6 +1,6 @@
 # create and/or set ${XDG_RUNTIME_DIR}
 if test -z "${XDG_RUNTIME_DIR}"; then
-    export XDG_RUNTIME_DIR=/run/user/${UID}
+    export XDG_RUNTIME_DIR=/run/user/$(id -u $USER)
     if ! test -d "${XDG_RUNTIME_DIR}"; then
         mkdir -p "${XDG_RUNTIME_DIR}"
         chmod 0700 "${XDG_RUNTIME_DIR}"
