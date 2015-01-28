@@ -8,6 +8,7 @@ IMAGE_FEATURES += " \
     debug-tweaks \
     package-management \
     ssh-server-dropbear \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11-base', '', d)} \
 "
 
 # Qt
@@ -25,16 +26,13 @@ IMAGE_INSTALL += " \
 "
 
 # Qt Wayland
-IMAGE_INSTALL += " \
-    qtwayland \
-    qtwayland-plugins \
-"
+IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'qtwayland qtwayland-plugins', '', d)}"
 
 # Wayland
-IMAGE_INSTALL += " \
-    weston \
-    weston-examples \
-"
+IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'weston weston-examples', '', d)}"
+
+# X11
+IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '${XSERVER} xinit', '', d)}"
 
 # EFL
 IMAGE_INSTALL += " \
@@ -55,7 +53,8 @@ IMAGE_INSTALL += " \
 IMAGE_INSTALL += "ttf-bitstream-vera" 
 
 # Demos
-IMAGE_INSTALL += "demos"
+#IMAGE_INSTALL += "demos"
+IMAGE_INSTALL += "compiz carrousel qmlshowcase cinematicexperience elemines twm openbox openbox-theme-clearlooks"
 
 IMAGE_INSTALL += "openssh-sftp openssh-sftp-server"
 IMAGE_INSTALL += "autologin"
@@ -67,3 +66,6 @@ IMAGE_INSTALL += "openssl ca-certificates"
 IMAGE_INSTALL += "ofono"
 IMAGE_INSTALL += "connman connman-client"
 #IMAGE_INSTALL += "bluez5 bluez5-obex"
+
+IMAGE_INSTALL += "e-wm e-wm-config-standard e-wm-config-mobile"
+IMAGE_INSTALL += "efl-dbg e-wm-dbg"
