@@ -8,7 +8,6 @@ IMAGE_FEATURES += " \
     debug-tweaks \
     package-management \
     ssh-server-dropbear \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11-base', '', d)} \
 "
 
 # Qt
@@ -54,7 +53,7 @@ IMAGE_INSTALL += "ttf-bitstream-vera"
 
 # Demos
 #IMAGE_INSTALL += "demos"
-IMAGE_INSTALL += "compiz carrousel qmlshowcase cinematicexperience elemines twm openbox openbox-theme-clearlooks"
+IMAGE_INSTALL += "carrousel qmlshowcase cinematicexperience elemines twm openbox openbox-theme-clearlooks"
 
 IMAGE_INSTALL += "openssh-sftp openssh-sftp-server"
 IMAGE_INSTALL += "autologin"
