@@ -4,11 +4,12 @@ DISTRO_CODENAME =""
 SDK_VENDOR = "-freenivisdk"
 SDK_VERSION := "${@'${DISTRO_VERSION}'}"
 
-MAINTAINER = "Nicolas Aguirre <nicolas.aguirre@openwide.fr>"
+MAINTAINER = "Freenivi Team <freenivi-dev@lists.projects.openwide.fr>"
 
 TARGET_VENDOR = "-freenivi"
 
-LAYER_CONF_VERSION ?= "5"
+LOCALCONF_VERSION = "1"
+LAYER_CONF_VERSION ?= "6"
 
 VIRTUAL-RUNTIME_init_manager = "systemd"
 VIRTUAL-RUNTIME_initscripts = ""
@@ -25,6 +26,8 @@ PREFERRED_VERSION_linux-yocto_qemux86 ?= "3.10%"
 PREFERRED_VERSION_linux-yocto_qemux86-64 ?= "3.10%"
 PREFERRED_VERSION_linux-yocto_qemuarm ?= "3.10%"
 PREFERRED_VERSION_linux-yocto_vexpressa9 ?= "3.10%"
+
+PREFERRED_PROVIDER_virtual/wayland-egl_mx6 = "gpu-viv-bin-mx6q"
 
 PREFERRED_PROVIDER_jpeg = "jpeg"
 PREFERRED_PROVIDER_jpeg-native = "jpeg-native"
