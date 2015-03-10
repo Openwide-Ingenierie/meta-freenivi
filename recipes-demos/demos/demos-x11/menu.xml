@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="apps-demos-menu" label="Demos">
+  <item label="QML Show Case">
+    <action name="Execute">
+      <command>/opt/qmlshowcase/bin/qmlshowcase</command>
+    </action>
+  </item>
+  <item label="Qt Cinematic Experience">
+    <action name="Execute">
+      <command>Qt5_CinematicExperience</command>
+    </action>
+  </item>
+  <item label="Carrousel">
+    <action name="Execute">
+      <command>carrousel</command>
+    </action>
+  </item>
+  <item label="Elemines">
+    <action name="Execute">
+      <command>elemines</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="apps-term-menu" label="Terminals">
+  <item label="Xterm">
+    <action name="Execute">
+	<command>xterm</command>
+    </action>
+  </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+  <separator label="Applications" />
+  <menu id="apps-demos-menu"/>
+  <menu id="apps-term-menu"/>
+  <separator label="System" />
+  <separator />
+  <item label="Log Out">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+</menu>
+
+
+</openbox_menu>
