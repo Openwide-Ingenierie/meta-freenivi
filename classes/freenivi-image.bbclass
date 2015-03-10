@@ -21,7 +21,6 @@ IMAGE_INSTALL += " \
     qtdeclarative-qmlplugins \
     qtmultimedia-qmlplugins \
     qt3d-qmlplugins \
-    qtwebkit \
 "
 
 # Qt Wayland
