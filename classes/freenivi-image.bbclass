@@ -52,7 +52,9 @@ IMAGE_INSTALL += "ttf-bitstream-vera"
 
 # Demos
 #IMAGE_INSTALL += "demos"
-IMAGE_INSTALL += "carrousel qmlshowcase cinematicexperience elemines twm openbox openbox-theme-clearlooks"
+IMAGE_INSTALL += "carrousel qmlshowcase cinematicexperience elemines"
+
+IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'openbox openbox-theme-clearlooks', '', d)}"
 
 IMAGE_INSTALL += "openssh-sftp openssh-sftp-server"
 IMAGE_INSTALL += "autologin"
@@ -64,5 +66,3 @@ IMAGE_INSTALL += "ofono"
 IMAGE_INSTALL += "connman connman-client"
 #IMAGE_INSTALL += "bluez5 bluez5-obex"
 
-IMAGE_INSTALL += "e-wm e-wm-config-standard e-wm-config-mobile"
-IMAGE_INSTALL += "efl-dbg e-wm-dbg"
