@@ -1,5 +1,5 @@
 SUMMARY = "Demo image configuration for X11"
-DESCRIPTION = "Meta package that add to the image everything for demos"
+DESCRIPTION = "Meta package that add to the image everything for an X11 demo"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://COPYING;endline=19;md5=872ee2b4639e730fc3187ab05f04457f"
 
