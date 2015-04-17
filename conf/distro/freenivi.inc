@@ -51,8 +51,6 @@ XSERVER ?= "xserver-xorg \
            ${@base_contains("MACHINE_ARCH", "qemux86_64", "xf86-video-vmware", "", d)} \
            ${@base_contains("MACHINE_ARCH", "vexpressa9", "xf86-video-fbdev", "", d)} \
           "
-PACKAGECONFIG_remove_mx6 = "gallium gallium-egl gallium-llvm"
-
 PREMIRRORS ??= "\
 bzr://.*/.*   http://downloads.yoctoproject.org/mirror/sources/ \n \
 cvs://.*/.*   http://downloads.yoctoproject.org/mirror/sources/ \n \
