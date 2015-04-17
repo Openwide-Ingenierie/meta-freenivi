@@ -1,13 +1,8 @@
 inherit core-image
-
-FREENIVI_IMAGE_NAME = "${MACHINE}-freenivi-full"
+include recipes-images/freenivi/freenivi-sdk.inc
 
 IMAGE_FEATURES += " \
-    splash \
-    tools-debug \ 
-    debug-tweaks \
     package-management \
-    ssh-server-dropbear \
 "
 
 # Qt
@@ -23,15 +18,6 @@ IMAGE_INSTALL += " \
     qt3d-qmlplugins \
 "
 
-# Qt Wayland
-IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'qtwayland qtwayland-plugins', '', d)}"
-
-# Wayland
-IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'weston weston-examples', '', d)}"
-
-# X11
-IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '${XSERVER} xinit', '', d)}"
-
 # EFL
 IMAGE_INSTALL += " \
     elementary \
@@ -41,28 +27,23 @@ IMAGE_INSTALL += " \
     ecore-evas \
 "
 
-# EFL Bench
-IMAGE_INSTALL += " \
-    expedite \
-    perf \
-"
+# Qt Wayland
+IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'qtwayland qtwayland-plugins', '', d)}"
+# Wayland
+IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'weston', '', d)}"
 
-# Fonts
-IMAGE_INSTALL += "ttf-bitstream-vera" 
-
-# Demos
-#IMAGE_INSTALL += "demos"
-IMAGE_INSTALL += "carrousel qmlshowcase cinematicexperience elemines"
-
+# X11
+IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '${XSERVER} xinit', '', d)}"
+# default window manager for X11
 IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'openbox openbox-theme-clearlooks', '', d)}"
 
-IMAGE_INSTALL += "openssh-sftp openssh-sftp-server"
-IMAGE_INSTALL += "autologin"
+# Fonts
+IMAGE_INSTALL += "ttf-bitstream-vera"
+
+# Utils
 IMAGE_INSTALL += "tzdata tzdata-europe"
 IMAGE_INSTALL += "avahi-utils"
 IMAGE_INSTALL += "procps"
 IMAGE_INSTALL += "openssl ca-certificates"
 IMAGE_INSTALL += "ofono"
 IMAGE_INSTALL += "connman connman-client"
-#IMAGE_INSTALL += "bluez5 bluez5-obex"
-
