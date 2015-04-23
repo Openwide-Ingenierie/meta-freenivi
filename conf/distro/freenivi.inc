@@ -14,8 +14,7 @@ LAYER_CONF_VERSION ?= "6"
 VIRTUAL-RUNTIME_init_manager = "systemd"
 VIRTUAL-RUNTIME_initscripts = ""
 
-DISTRO_FEATURES_append = " vfat usbhost bluetooth wifi 3g nfc ipv6 zeroconf phone systemd opengl pam wifi"
-DISTRO_FEATURES_append = " ${DISTRO_FEATURES_LIBC}"
+DISTRO_FEATURES += "vfat usbhost bluetooth wifi 3g nfc ipv6 zeroconf phone systemd opengl pam wifi ${DISTRO_FEATURES_LIBC}"
 DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 
 PREFERRED_PROVIDER_udev ?= "systemd"
@@ -27,8 +26,6 @@ PREFERRED_VERSION_linux-yocto_qemux86-64 ?= "3.10%"
 PREFERRED_VERSION_linux-yocto_qemuarm ?= "3.10%"
 PREFERRED_VERSION_linux-yocto_vexpressa9 ?= "3.10%"
 
-PREFERRED_PROVIDER_virtual/wayland-egl_mx6 = "gpu-viv-bin-mx6q"
-
 PREFERRED_PROVIDER_jpeg = "jpeg"
 PREFERRED_PROVIDER_jpeg-native = "jpeg-native"
 
@@ -36,21 +33,23 @@ TCLIBCAPPEND = ""
 
 QEMU_TARGETS ?= "arm i386 x86_64"
 
-XSERVER ?= "xserver-xorg \
-           xserver-xf86-config \
-           xserver-xorg-extension-dbe \
-           xserver-xorg-extension-dri \
-           xserver-xorg-extension-dri2 \
-           xserver-xorg-extension-extmod \
-           xserver-xorg-extension-glx \
-           xf86-input-evdev \
-           xf86-input-mouse \
-           xf86-input-keyboard \
-           mesa-driver-swrast \
-           ${@base_contains("MACHINE_ARCH", "qemux86", "xf86-video-vmware", "", d)} \
-           ${@base_contains("MACHINE_ARCH", "qemux86_64", "xf86-video-vmware", "", d)} \
-           ${@base_contains("MACHINE_ARCH", "vexpressa9", "xf86-video-fbdev", "", d)} \
-          "
+XSERVER ?= " \
+        xserver-xorg \
+        xserver-xf86-config \
+  	xserver-xorg-extension-dbe \
+	xserver-xorg-extension-dri \
+	xserver-xorg-extension-dri2 \
+	xserver-xorg-extension-extmod \
+	xserver-xorg-extension-glx \
+	xf86-input-evdev \
+	xf86-input-mouse \
+	xf86-input-keyboard \
+	mesa-driver-swrast \
+	${@base_contains("MACHINE_ARCH", "qemux86", "xf86-video-vmware", "", d)} \
+	${@base_contains("MACHINE_ARCH", "qemux86_64", "xf86-video-vmware", "", d)} \
+	${@base_contains("MACHINE_ARCH", "vexpressa9", "xf86-video-fbdev", "", d)} \
+"
+
 PREMIRRORS ??= "\
 bzr://.*/.*   http://downloads.yoctoproject.org/mirror/sources/ \n \
 cvs://.*/.*   http://downloads.yoctoproject.org/mirror/sources/ \n \
