@@ -4,7 +4,7 @@ DISTRO_CODENAME =""
 SDK_VENDOR = "-freenivisdk"
 SDK_VERSION := "${@'${DISTRO_VERSION}'}"
 
-MAINTAINER = "Freenivi Team <freenivi-dev@lists.projects.openwide.fr>"
+MAINTAINER = "Freenivi Team <team@freenivi.org>"
 
 TARGET_VENDOR = "-freenivi"
 
