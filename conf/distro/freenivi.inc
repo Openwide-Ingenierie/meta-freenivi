@@ -44,7 +44,6 @@ XSERVER ?= " \
 	xf86-input-evdev \
 	xf86-input-mouse \
 	xf86-input-keyboard \
-	mesa-driver-swrast \
 	${@base_contains("MACHINE_ARCH", "qemux86", "xf86-video-vmware", "", d)} \
 	${@base_contains("MACHINE_ARCH", "qemux86_64", "xf86-video-vmware", "", d)} \
 	${@base_contains("MACHINE_ARCH", "vexpressa9", "xf86-video-fbdev", "", d)} \
