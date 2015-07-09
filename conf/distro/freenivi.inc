@@ -33,7 +33,7 @@ TCLIBCAPPEND = ""
 
 QEMU_TARGETS ?= "arm i386 x86_64"
 
-XSERVER ?= " \
+XSERVER = " \
         xserver-xorg \
         xserver-xf86-config \
   	xserver-xorg-extension-dbe \
@@ -41,6 +41,7 @@ XSERVER ?= " \
 	xserver-xorg-extension-dri2 \
 	xserver-xorg-extension-extmod \
 	xserver-xorg-extension-glx \
+	xauth \
 	xf86-input-evdev \
 	xf86-input-mouse \
 	xf86-input-keyboard \
