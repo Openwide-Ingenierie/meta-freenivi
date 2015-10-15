@@ -9,7 +9,6 @@ SRC_URI = " \
     file://browser.png \
     file://carrousel.png \
     file://cinematicexperience.png \
-    file://qmlshowcase.png \
     file://elemines.png \
     file://glmark2.png \
 "
@@ -24,7 +23,6 @@ do_install_append() {
     install -m 0644 ${WORKDIR}/browser.png ${D}${datadir}/weston/browser.png
     install -m 0644 ${WORKDIR}/carrousel.png ${D}${datadir}/weston/carrousel.png
     install -m 0644 ${WORKDIR}/cinematicexperience.png ${D}${datadir}/weston/cinematicexperience.png
-    install -m 0644 ${WORKDIR}/qmlshowcase.png ${D}${datadir}/weston/qmlshowcase.png
     install -m 0644 ${WORKDIR}/elemines.png ${D}${datadir}/weston/elemines.png
     install -m 0644 ${WORKDIR}/glmark2.png ${D}${datadir}/weston/glmark2.png
 }

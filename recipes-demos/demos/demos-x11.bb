@@ -30,4 +30,4 @@ FILES_${PN} += " \
     /home/root/ \
 "
 
-RDEPENDS_${PN} = "cinematicexperience qmlshowcase elemines openbox openbox-theme-clearlooks feh xinit"
+RDEPENDS_${PN} = "cinematicexperience elemines openbox openbox-theme-clearlooks feh xinit"
