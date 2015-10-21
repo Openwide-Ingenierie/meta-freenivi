@@ -33,4 +33,4 @@ FILES_${PN} += " \
     ${datadir}/weston \
 "
 
-RDEPENDS_${PN} = "weston qtwebkit-examples-examples carrousel cinematicexperience qmlshowcase elemines"
+RDEPENDS_${PN} = "weston qtwebkit-examples-examples carrousel cinematicexperience elemines glmark2"
