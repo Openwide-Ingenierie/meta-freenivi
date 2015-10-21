@@ -1,3 +1,4 @@
+SUMMARY = "glmark2 is an OpenGL 2.0 and ES 2.0 benchmark."
 LICENSE = "GPLv3"
 SRC_URI = "git://github.com/glmark2/glmark2.git"
 SRCREV="fa71af2dfab711fac87b9504b6fc9862f44bf72a"
@@ -18,25 +19,34 @@ do_configure() {
 
 do_compile() {
     ${S}/./waf
+    #change to generic name
+    mv ${S}/build/src/glmark2-es2-wayland ${S}/build/src/glmark2
 }
 
 do_install() {
-    install -d ${D}/${bindir}
-    install -m 0644 ${S}/build/src/glmark2-es2-wayland ${D}/${bindir}
-    chmod a+x ${D}/${bindir}/glmark2-es2-wayland
+    install -d ${D}${bindir}
+    install -m 0644 ${S}/build/src/glmark2 ${D}${bindir}
+    chmod a+x ${D}${bindir}/glmark2
 
-    install -d ${D}/usr/share
-    install -d ${D}/usr/share/glmark2
-    install -d ${D}/usr/share/man
-    install -d ${D}/usr/share/man/man1
-    install -d ${D}/usr/share/glmark2/models
-    install -d ${D}/usr/share/glmark2/shaders
-    install -d ${D}/usr/share/glmark2/textures
+    install -d ${D}${datadir}/glmark2
+    install -d ${D}${datadir}/man
+    install -d ${D}${datadir}/man/man1
+    install -d ${D}${datadir}/glmark2/models
+    install -d ${D}${datadir}/glmark2/shaders
+    install -d ${D}${datadir}/glmark2/textures
 
-    cp ${S}/data/models/* ${D}/usr/share/glmark2/models
-    cp ${S}/data/shaders/* ${D}/usr/share/glmark2/shaders
-    cp ${S}/data/textures/* ${D}/usr/share/glmark2/textures
-    cp ${S}/build/doc/glmark2-es2-wayland.1 ${D}/usr/share/man/man1
+    cp ${S}/data/models/* ${D}${datadir}/glmark2/models
+    cp ${S}/data/shaders/* ${D}${datadir}/glmark2/shaders
+    cp ${S}/data/textures/* ${D}${datadir}/glmark2/textures
+    cp ${S}/build/doc/glmark2-es2-wayland.1 ${D}${datadir}/man/man1
 }
 
-FILES_glmark2 = ""
+FILES_${PN} = " \
+    ${bindir}/glmark2 \
+    ${datadir}/glmark2 \
+    ${datadir}/man \
+    ${datadir}/man/man1 \
+    ${datadir}/glmark2/models \
+    ${datadir}/glmark2/shaders \
+    ${datadir}/glmark2/textures \
+"
