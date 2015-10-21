@@ -15,5 +15,9 @@ export ELM_ENGINE=wayland-egl
 
 # launch weston on login (tty1 only)
 if test "$(tty)" = "/dev/tty1"; then
-    /usr/bin/weston --log=/var/log/weston.log
+    if test -e "/usr/lib/weston/gal2d-renderer.so"; then
+        /usr/bin/weston --use-gal2d=1 --log=/var/log/weston.log
+    else
+        /usr/bin/weston --log=/var/log/weston.log
+    fi
 fi
