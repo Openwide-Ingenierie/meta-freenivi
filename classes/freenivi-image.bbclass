@@ -16,8 +16,9 @@ IMAGE_INSTALL += " \
     qtdeclarative-qmlplugins \
     qtdeclarative-plugins \
     qtmultimedia-qmlplugins \
-    qt3d-qmlplugins \
 "
+#qt3d-qmlplugins \
+#
 
 # EFL
 IMAGE_INSTALL += " \
