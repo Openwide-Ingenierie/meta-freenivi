@@ -22,11 +22,7 @@ IMAGE_INSTALL += " \
 
 # EFL
 IMAGE_INSTALL += " \
-    elementary \
-    elementary-tests \
-    edje-utils \
-    evas \
-    ecore-evas \
+    packagegroup-freenivi-efl \
 "
 
 # Qt Wayland
