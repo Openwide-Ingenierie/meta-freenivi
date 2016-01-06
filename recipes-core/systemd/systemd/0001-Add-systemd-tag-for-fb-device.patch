@@ -1,0 +1,11 @@
+--- a/src/login/71-seat.rules.in	2015-12-17 15:23:59.359210799 +0000
++++ b/src/login/71-seat.rules.in	2015-12-17 15:49:03.839213175 +0000
+@@ -10,7 +10,7 @@
+ TAG=="uaccess", SUBSYSTEM!="sound", TAG+="seat"
+ SUBSYSTEM=="sound", KERNEL=="card*", TAG+="seat"
+ SUBSYSTEM=="input", KERNEL=="input*", TAG+="seat"
+-SUBSYSTEM=="graphics", KERNEL=="fb[0-9]*", TAG+="seat", TAG+="master-of-seat"
++SUBSYSTEM=="graphics", KERNEL=="fb[0-9]*", TAG+="seat", TAG+="master-of-seat", TAG+="systemd"
+ SUBSYSTEM=="drm", KERNEL=="card[0-9]*", TAG+="seat", TAG+="master-of-seat"
+ SUBSYSTEM=="usb", ATTR{bDeviceClass}=="09", TAG+="seat"
+ 

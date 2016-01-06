@@ -1,0 +1,11 @@
+[Unit]
+Description=Starts Psplash Boot screen 
+Wants=dev-fb0.device
+After=dev-fb0.device
+DefaultDependencies=no
+
+[Service]
+ExecStart=/usr/bin/psplash-default
+
+[Install]
+WantedBy=sysinit.target

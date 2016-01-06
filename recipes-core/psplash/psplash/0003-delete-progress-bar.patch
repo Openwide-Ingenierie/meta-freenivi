@@ -1,0 +1,84 @@
+--- a/psplash.c	2015-12-17 16:14:08.727215553 +0000
++++ b/psplash.c	2015-12-17 15:56:25.463213873 +0000
+@@ -23,7 +23,6 @@
+ #include "psplash-colors.h"
+ #include "psplash-logo-img.h"
+ #include "psplash-poky-img.h"
+-#include "psplash-bar-img.h"
+ #include "radeon-font.h"
+ 
+ #define SPLIT_LINE_POS(fb)                                  \
+@@ -67,41 +66,6 @@
+ 			msg);
+ }
+ 
+-void
+-psplash_draw_progress (PSplashFB *fb, int value)
+-{
+-  int x, y, width, height, barwidth;
+-
+-  /* 4 pix border */
+-  x      = ((fb->width  - BAR_IMG_WIDTH)/2) + 4 ;
+-  y      = SPLIT_LINE_POS(fb) + 4;
+-  width  = BAR_IMG_WIDTH - 8; 
+-  height = BAR_IMG_HEIGHT - 8;
+-
+-  if (value > 0)
+-    {
+-      barwidth = (CLAMP(value,0,100) * width) / 100;
+-      psplash_fb_draw_rect (fb, x + barwidth, y, 
+-    			width - barwidth, height,
+-			PSPLASH_BAR_BACKGROUND_COLOR);
+-      psplash_fb_draw_rect (fb, x, y, barwidth,
+-			    height, PSPLASH_BAR_COLOR);
+-    }
+-  else
+-    {
+-      barwidth = (CLAMP(-value,0,100) * width) / 100;
+-      psplash_fb_draw_rect (fb, x, y, 
+-    			width - barwidth, height,
+-			PSPLASH_BAR_BACKGROUND_COLOR);
+-      psplash_fb_draw_rect (fb, x + width - barwidth,
+-			    y, barwidth, height,
+-			    PSPLASH_BAR_COLOR);
+-    }
+-
+-  DBG("value: %i, width: %i, barwidth :%i\n", value, 
+-		width, barwidth);
+-}
+-
+ static int 
+ parse_command (PSplashFB *fb, char *string, int length) 
+ {
+@@ -117,11 +81,7 @@
+ 
+   command = strtok(string," ");
+ 
+-  if (!strcmp(command,"PROGRESS")) 
+-    {
+-      psplash_draw_progress (fb, atoi(strtok(NULL,"\0")));
+-    } 
+-  else if (!strcmp(command,"MSG")) 
++  if (!strcmp(command,"MSG")) 
+     {
+       psplash_draw_msg (fb, strtok(NULL,"\0"));
+     } 
+@@ -290,18 +250,6 @@
+ 			 LOGO_IMG_ROWSTRIDE,
+ 			 LOGO_IMG_RLE_PIXEL_DATA);
+ 
+-  /* Draw progress bar border */
+-  psplash_fb_draw_image (fb, 
+-			 (fb->width  - BAR_IMG_WIDTH)/2, 
+-			 SPLIT_LINE_POS(fb),
+-			 BAR_IMG_WIDTH,
+-			 BAR_IMG_HEIGHT,
+-			 BAR_IMG_BYTES_PER_PIXEL,
+-			 BAR_IMG_ROWSTRIDE,
+-			 BAR_IMG_RLE_PIXEL_DATA);
+-
+-  psplash_draw_progress (fb, 0);
+-
+ #ifdef PSPLASH_STARTUP_MSG
+   psplash_draw_msg (fb, PSPLASH_STARTUP_MSG);
+ #endif

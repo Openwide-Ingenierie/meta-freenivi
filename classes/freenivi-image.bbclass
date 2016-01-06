@@ -42,6 +42,9 @@ IMAGE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'openbox openbo
 # Fonts
 IMAGE_INSTALL += "ttf-bitstream-vera"
 
+# Splash Freenivi
+IMAGE_INSTALL += "psplash"
+
 # Utils
 IMAGE_INSTALL += "tzdata tzdata-europe"
 IMAGE_INSTALL += "avahi-utils"

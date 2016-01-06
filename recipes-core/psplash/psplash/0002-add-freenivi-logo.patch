@@ -1,0 +1,62 @@
+--- a/psplash.c	2015-12-10 15:09:06.482253948 +0000
++++ b/psplash.c	2015-12-10 15:17:16.502254723 +0000
+@@ -21,6 +21,7 @@
+ #include "psplash.h"
+ #include "psplash-config.h"
+ #include "psplash-colors.h"
++#include "psplash-logo-img.h"
+ #include "psplash-poky-img.h"
+ #include "psplash-bar-img.h"
+ #include "radeon-font.h"
+@@ -274,20 +274,20 @@
+   psplash_fb_draw_rect (fb, 0, 0, fb->width, fb->height,
+                         PSPLASH_BACKGROUND_COLOR);
+ 
+-  /* Draw the Poky logo  */
++  /* Draw the your logo  */
+   psplash_fb_draw_image (fb, 
+-			 (fb->width  - POKY_IMG_WIDTH)/2, 
++			 (fb->width  - LOGO_IMG_WIDTH)/2, 
+ #if PSPLASH_IMG_FULLSCREEN
+-			 (fb->height - POKY_IMG_HEIGHT)/2,
++			 (fb->height - LOGO_IMG_HEIGHT)/2,
+ #else
+ 			 (fb->height * PSPLASH_IMG_SPLIT_NUMERATOR
+-			  / PSPLASH_IMG_SPLIT_DENOMINATOR - POKY_IMG_HEIGHT)/2,
++			  / PSPLASH_IMG_SPLIT_DENOMINATOR - LOGO_IMG_HEIGHT)/2,
+ #endif
+-			 POKY_IMG_WIDTH,
+-			 POKY_IMG_HEIGHT,
+-			 POKY_IMG_BYTES_PER_PIXEL,
+-			 POKY_IMG_ROWSTRIDE,
+-			 POKY_IMG_RLE_PIXEL_DATA);
++			 LOGO_IMG_WIDTH,
++			 LOGO_IMG_HEIGHT,
++			 LOGO_IMG_BYTES_PER_PIXEL,
++			 LOGO_IMG_ROWSTRIDE,
++			 LOGO_IMG_RLE_PIXEL_DATA);
+ 
+   /* Draw progress bar border */
+   psplash_fb_draw_image (fb,
+
+--- a/psplash-colors.h	2015-12-10 15:12:44.714254293 +0000
++++ b/psplash-colors.h	2015-12-10 16:20:58.070260760 +0000
+@@ -20,15 +20,15 @@
+ #define _HAVE_PSPLASH_COLORS_H
+ 
+ /* This is the overall background color */
+-#define PSPLASH_BACKGROUND_COLOR 0xec,0xec,0xe1
++#define PSPLASH_BACKGROUND_COLOR 0xff,0xff,0xff
+ 
+ /* This is the color of any text output */
+ #define PSPLASH_TEXT_COLOR 0x6d,0x6d,0x70
+ 
+ /* This is the color of the progress bar indicator */
+-#define PSPLASH_BAR_COLOR 0x6d,0x6d,0x70
++#define PSPLASH_BAR_COLOR 0x00,0x00,0x00
+ 
+ /* This is the color of the progress bar background */
+-#define PSPLASH_BAR_BACKGROUND_COLOR 0xec,0xec,0xe1
++#define PSPLASH_BAR_BACKGROUND_COLOR 0xff,0xff,0xff
+ 
+ #endif
