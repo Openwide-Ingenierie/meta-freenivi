@@ -35,6 +35,8 @@ RDEPENDS_packagegroup-freenivi-qt-multimedia = " \
 	qtmultimedia-examples \
 	v4l-utils \
 	yavta \
+	qt3d \
+	qt3d-qmlplugins \
 "
 
 SUMMARY_packagegroup-freenivi-qt-webkit = ""
