@@ -1,5 +1,4 @@
 inherit core-image
-include recipes-images/freenivi/freenivi-sdk.inc
 
 IMAGE_FEATURES += " \
     package-management \
