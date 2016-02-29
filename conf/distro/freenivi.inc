@@ -44,7 +44,7 @@ TCLIBCAPPEND = ""
 
 QEMU_TARGETS ?= "arm i386 x86_64"
 
-XSERVER = " \
+XSERVER ?= " \
         xserver-xorg \
         xserver-xf86-config \
   	xserver-xorg-extension-dbe \
