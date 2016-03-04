@@ -10,17 +10,17 @@ Layer Dependencies
 ------------------
 
 URI: https://github.com/openembedded/oe-core
-> branch:   dizzy
+> branch:   jethro
 > revision: HEAD
 
 URI: https://github.com/openembedded/meta-oe
 > layer:    meta-oe, meta-efl
-> branch:   dizzy
+> branch:   jethro
 > revision: HEAD
 
 URI: https://github.com/meta-qt5/meta-qt5
-> branch:   master 
-> revision: 8b040e58b263741ea19e1826308e22ab3cae585b
+> branch:   jethro 
+> revision: HEAD
 
 
 Supported Machines
@@ -29,8 +29,10 @@ Supported Machines
 The list of supported machines is:
 * emulator-x86: available with layer meta-freenivi-sdk
 * emulator-arm: available with layer meta-freenivi-sdk
-* imx6qsabrelite: available with layer meta-freenivi-bsp
-* nitrogen6x: available with layer meta-freenivi-bsp
+* imx6qsabrelite: available with layers meta-fsl-arm and meta-fsl-arm-extra
+* nitrogen6x: available with layers meta-fsl-arm and meta-fsl-arm-extra
+* raspberrypi: available with layer meta-raspberrypi
+* raspberrypi2: available with layer meta-raspberrypi
 
 
 Build a Freenivi image
