@@ -44,24 +44,6 @@ TCLIBCAPPEND = ""
 
 QEMU_TARGETS ?= "arm i386 x86_64"
 
-XSERVER ?= " \
-        xserver-xorg \
-        xserver-xf86-config \
-  	xserver-xorg-extension-dbe \
-	xserver-xorg-extension-dri \
-	xserver-xorg-extension-dri2 \
-	xserver-xorg-extension-extmod \
-	xserver-xorg-extension-glx \
-	xauth \
-	xf86-input-evdev \
-	xf86-input-mouse \
-	xf86-input-keyboard \
-	mesa-driver-swrast \
-	${@base_contains("MACHINE_ARCH", "qemux86", "xf86-video-vmware", "", d)} \
-	${@base_contains("MACHINE_ARCH", "qemux86_64", "xf86-video-vmware", "", d)} \
-	${@base_contains("MACHINE_ARCH", "vexpressa9", "xf86-video-fbdev", "", d)} \
-"
-
 PREMIRRORS ??= "\
 bzr://.*/.*   http://downloads.yoctoproject.org/mirror/sources/ \n \
 cvs://.*/.*   http://downloads.yoctoproject.org/mirror/sources/ \n \
