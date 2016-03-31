@@ -2,7 +2,6 @@ DESCRIPTION = "Qt features for freenivi"
 LICENSE = " "
 
 inherit packagegroup
-inherit populate_sdk_qt5
 
 PROVIDES = "${PACKAGES}"
 PACKAGES = " \
