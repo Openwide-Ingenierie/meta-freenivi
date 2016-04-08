@@ -17,6 +17,10 @@ VIRTUAL-RUNTIME_initscripts = ""
 DISTRO_FEATURES += "vfat usbhost bluetooth wifi 3g nfc ipv6 zeroconf phone systemd opengl pam wifi ${DISTRO_FEATURES_LIBC}"
 DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
 
+# distro may not use X11 but the nativesdk needs X11
+DISTRO_FEATURES_append_class-nativesdk = " x11"
+
+
 PREFERRED_PROVIDER_udev ?= "systemd"
 PREFERRED_PROVIDER_udev-utils ?= "systemd"
 
