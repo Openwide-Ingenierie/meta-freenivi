@@ -41,6 +41,9 @@ IMAGE_INSTALL += "ttf-bitstream-vera"
 # Splash Freenivi
 IMAGE_INSTALL += "psplash"
 
+#Can
+IMAGE_INSTALL += "can-utils"
+
 # Utils
 IMAGE_INSTALL += "tzdata tzdata-europe"
 IMAGE_INSTALL += "avahi-utils"
