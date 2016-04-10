@@ -33,6 +33,13 @@ PREFERRED_VERSION_linux-yocto_vexpressa9 ?= "3.10%"
 PREFERRED_PROVIDER_jpeg = "jpeg"
 PREFERRED_PROVIDER_jpeg-native = "jpeg-native"
 
+#This should be in the imx-base.inc from fsl-arm layer
+PREFERRED_PROVIDER_virtual/wayland-egl_mx6q ?= "imx-gpu-viv"
+PREFERRED_PROVIDER_virtual/wayland-egl_mx6dl ?= "imx-gpu-viv"
+PREFERRED_PROVIDER_virtual/wayland-egl_mx6sx ?= "imx-gpu-viv"
+PREFERRED_PROVIDER_virtual/wayland-egl_mx6sl ?= "mesa"
+PREFERRED_PROVIDER_virtual/wayland-egl_mx6ul ?= "mesa"
+
 TCLIBCAPPEND = ""
 
 QEMU_TARGETS ?= "arm i386 x86_64"
