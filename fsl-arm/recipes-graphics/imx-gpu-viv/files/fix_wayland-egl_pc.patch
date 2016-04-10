@@ -1,0 +1,10 @@
+--- a/gpu-core/usr/lib/pkgconfig/wayland-egl.pc	2015-08-24 07:45:21.000000000 +0200
++++ b/gpu-core/usr/lib/pkgconfig/wayland-egl.pc	2015-08-24 07:45:21.000000000 +0200
+@@ -5,6 +5,6 @@
+ 
+ Name: wayland-egl
+ Description: Bind the driver EGL to the Wayland API
+-Version: 1.0.0
++Version: 9.2.0
+ Libs: -L${libdir} -lEGL
+ Cflags: -I${includedir}

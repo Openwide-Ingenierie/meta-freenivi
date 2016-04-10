@@ -1,0 +1,34 @@
+--- a/gpu-core/usr/include/EGL/eglvivante.h	2016-04-10 12:47:38.090606624 +0200
++++ b/gpu-core/usr/include/EGL/eglvivante.h	2016-04-10 12:54:30.531841466 +0200
+@@ -239,7 +239,22 @@
+     typedef void*                               EGLNativeDisplayType;
+ #endif
+ 
++#elif defined(WL_EGL_PLATFORM)
++
++typedef struct wl_display     *EGLNativeDisplayType;
++typedef struct wl_egl_pixmap  *EGLNativePixmapType;
++typedef struct wl_egl_window  *EGLNativeWindowType;
++
+ #elif defined(LINUX) || defined(__APPLE__)
++
++#if defined(MESA_EGL_NO_X11_HEADERS)
++
++typedef void            *EGLNativeDisplayType;
++typedef khronos_uintptr_t EGLNativePixmapType;
++typedef khronos_uintptr_t EGLNativeWindowType;
++
++#else
++
+ /* X11 platform. */
+ #include <X11/Xlib.h>
+ #include <X11/Xutil.h>
+@@ -253,6 +268,8 @@
+ typedef Pixmap      EGLNativePixmapType;
+ #endif /* CUSTOM_PIXMAP */
+ 
++#endif /* MESA_EGL_NO_X11_HEADERS */
++
+ #elif defined(__QNXNTO__)
+ #include <screen/screen.h>
+ 
