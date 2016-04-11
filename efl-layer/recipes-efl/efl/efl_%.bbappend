@@ -10,7 +10,7 @@ PACKAGECONFIG += "${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', 
 PACKAGECONFIG += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)}"
 
 PACKAGECONFIG[wayland] = "--enable-wayland --enable-egl, --disable-wayland, wayland virtual/egl libxkbcommon virtual/wayland-egl"
-PACKAGECONFIG[x11] = "--with-x --with-x11=xcb, --with-x11=none, libxext virtual/libx11 libxdamage libxrender libxcursor libxcomposite libxinerama libxrandr libxtst libxscrnsaver"
+PACKAGECONFIG[x11] = "--with-x --with-x11=xlib, --with-x11=none, libxext virtual/libx11 libxdamage libxrender libxcursor libxcomposite libxinerama libxrandr libxtst libxscrnsaver"
 
 # when building without X11 don't depends on ecore-x
 RDEPENDS_ecore_remove = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', '', 'ecore-x', d)}"
